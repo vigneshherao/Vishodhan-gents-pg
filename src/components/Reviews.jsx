@@ -1,23 +1,26 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
-
-const reviews = [
-    { name: "Palagiri Malli", text: "Wonderful host and lovely atmosphere. Felt like home from day one!", rating: 5 },
-    { name: "Md Mubarak dadu", text: "Good maintenance and food tasty also good. Highly suggested!", rating: 5 },
-    { name: "Pratham Gehlot", text: "Good pg for stay. Near to manyata tech park. Very convenient.", rating: 5 },
-    { name: "G Nithin Kumar Reddy", text: "Excellent PG with great amenities. The wifi speed is amazing.", rating: 5 },
-    { name: "Balaji KM", text: "Highly recommended for students and professionals. Clean and safe.", rating: 5 },
-    { name: "Sangana Madhan", text: "Great experience staying here. The community is very friendly.", rating: 5 },
-];
+import { loadContent } from '../utils/content';
 
 const Reviews = () => {
     const scrollRef = useRef(null);
     const [isPaused, setIsPaused] = useState(false);
+    const [content, setContent] = useState(null);
+
+    useEffect(() => {
+        const fetchContent = async () => {
+            const data = await loadContent("reviews.md");
+            if (data) {
+                setContent(data.attributes);
+            }
+        };
+        fetchContent();
+    }, []);
 
     useEffect(() => {
         const scrollContainer = scrollRef.current;
-        if (!scrollContainer) return;
+        if (!scrollContainer || !content || !content.review_list) return;
 
         let scrollAmount = 1; // Speed of auto-scroll
         let animationFrameId;
@@ -37,7 +40,11 @@ const Reviews = () => {
         animationFrameId = requestAnimationFrame(scroll);
 
         return () => cancelAnimationFrame(animationFrameId);
-    }, [isPaused]);
+    }, [isPaused, content]);
+
+    if (!content) return null;
+
+    const reviewList = content.review_list || [];
 
     return (
         <section id="reviews" className="py-24 bg-surface-50 overflow-hidden relative">
@@ -45,6 +52,7 @@ const Reviews = () => {
                 <motion.span
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
+                    whileHover={{ scale: 1.05 }}
                     className="inline-block py-1 px-3 rounded-full bg-accent-50 text-accent-600 font-semibold tracking-wider uppercase text-xs mb-4"
                 >
                     Testimonials
@@ -80,7 +88,7 @@ const Reviews = () => {
                     onTouchEnd={() => setTimeout(() => setIsPaused(false), 2000)} // Resume after delay on touch
                 >
                     {/* Double the array for infinite loop illusion */}
-                    {[...reviews, ...reviews, ...reviews].map((review, index) => (
+                    {[...reviewList, ...reviewList, ...reviewList].map((review, index) => (
                         <div
                             key={index}
                             className="flex-shrink-0 bg-white p-6 md:p-8 rounded-[1.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all 

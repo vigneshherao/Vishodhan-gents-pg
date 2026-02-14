@@ -1,0 +1,71 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/content/home.md"
+        label: "Home Page"
+        name: "home"
+        fields:
+          - {label: "Headline", name: "headline", widget: "string"}
+          - {label: "Subheadline", name: "subheadline", widget: "string"}
+          - {label: "Values", name: "values", widget: "list", fields: [{label: "Value Text", name: "text", widget: "string"}]}
+          - {label: "Hero Image", name: "hero_image", widget: "image"}
+          - {label: "Google Rating", name: "google_rating", widget: "string", default: "4.9/5.0"}
+
+      - file: "src/content/amenities.md"
+        label: "Amenities"
+        name: "amenities"
+        fields:
+          - {label: "Section Title", name: "section_title", widget: "string", default: "Everything You Need"}
+          - {label: "Main Heading", name: "main_heading", widget: "string", default: "Life Made Super Easy!"}
+          - label: "Amenities List"
+            name: "amenities_list"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "desc", widget: "string"}
+              - {label: "Icon Name", name: "icon", widget: "select", options: ["Wifi", "Coffee", "ShieldCheck", "Zap", "Sparkles", "Wind", "Cloud", "Rocket", "Bird"]}
+              - {label: "Color Theme", name: "color_theme", widget: "select", options: ["blue", "orange", "emerald", "yellow", "purple", "cyan"]}
+              - {label: "Width", name: "width", widget: "select", options: ["full", "half"], default: "half"}
+
+      - file: "src/content/contact.md"
+        label: "Contact"
+        name: "contact"
+        fields:
+          - {label: "Phone Number", name: "phone", widget: "string"}
+          - {label: "Email Address", name: "email", widget: "string"}
+          - {label: "Address Line 1", name: "address_line1", widget: "string"}
+          - {label: "Address Line 2", name: "address_line2", widget: "string"}
+          - {label: "Map URL", name: "map_url", widget: "string"}
+
+      - file: "src/content/gallery.md"
+        label: "Gallery"
+        name: "gallery"
+        fields:
+          - label: "Images"
+            name: "images"
+            widget: "list"
+            fields:
+              - {label: "Image", name: "image", widget: "image"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "desc", widget: "string"}
+              - {label: "Size", name: "size", widget: "select", options: ["small", "medium", "large"], default: "small"}
+
+      - file: "src/content/reviews.md"
+        label: "Reviews"
+        name: "reviews"
+        fields:
+          - label: "Review List"
+            name: "review_list"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Review Text", name: "text", widget: "text"}
+              - {label: "Rating", name: "rating", widget: "number", value_type: "int", min: 1, max: 5}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   MapPin,
   Phone,
@@ -11,8 +11,23 @@ import {
   Smile,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { loadContent } from "../utils/content";
 
 const Contact = () => {
+  const [content, setContent] = useState(null);
+
+  useEffect(() => {
+    const fetchContent = async () => {
+      const data = await loadContent("contact.md");
+      if (data) {
+        setContent(data.attributes);
+      }
+    };
+    fetchContent();
+  }, []);
+
+  if (!content) return null;
+
   return (
     <footer
       id="contact"
@@ -62,13 +77,13 @@ const Contact = () => {
                 {
                   icon: MapPin,
                   title: "Our Location",
-                  text: "Building #04, Bagalur Cross, Yelahanka, Bengaluru, Karnataka",
+                  text: `${content.address_line1}, ${content.address_line2}`,
                 },
-                { icon: Phone, title: "Call Us", text: "7259008155" },
+                { icon: Phone, title: "Call Us", text: content.phone },
                 {
                   icon: Mail,
                   title: "Email Us",
-                  text: "vishodhanpg@gmail.com",
+                  text: content.email,
                 },
               ].map((item, idx) => (
                 <motion.div
@@ -94,7 +109,6 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Socials */}
             {/* Socials */}
             <div className="mt-12 flex space-x-4">
               {[
@@ -159,7 +173,7 @@ const Contact = () => {
             >
               <div className="h-[350px] w-full bg-slate-100 rounded-[2rem] overflow-hidden relative isolate">
                 <iframe
-                  src="https://maps.google.com/maps?q=13.121274,77.6098376&z=15&output=embed"
+                  src={content.map_url}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

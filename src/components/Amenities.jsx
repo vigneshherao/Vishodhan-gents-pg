@@ -1,59 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Wifi, Coffee, ShieldCheck, Zap, Sparkles, Wind, Cloud, Rocket, Bird } from 'lucide-react';
+import { loadContent } from '../utils/content';
 
-const amenities = [
-    {
-        icon: Wifi,
-        title: "Super Fast Wifi",
-        desc: "Stream 4K without buffering",
-        color: "bg-blue-100",
-        iconColor: "text-blue-600",
-        colSpan: "col-span-1 md:col-span-2"
-    },
-    {
-        icon: Coffee,
-        title: "Yummy Food",
-        desc: "Homestyle meals 3x a day",
-        color: "bg-orange-100",
-        iconColor: "text-orange-600",
-        colSpan: "col-span-1"
-    },
-    {
-        icon: ShieldCheck,
-        title: "Safe & Secure",
-        desc: "24/7 CCTV & Biometrics",
-        color: "bg-emerald-100",
-        iconColor: "text-emerald-600",
-        colSpan: "col-span-1"
-    },
-    {
-        icon: Zap,
-        title: "Power Backup",
-        desc: "No dark moments here",
-        color: "bg-yellow-100",
-        iconColor: "text-yellow-600",
-        colSpan: "col-span-1 md:col-span-2"
-    },
-    {
-        icon: Sparkles,
-        title: "Daily Cleaning",
-        desc: "Sparkling clean rooms everyday",
-        color: "bg-purple-100",
-        iconColor: "text-purple-600",
-        colSpan: "col-span-1"
-    },
-    {
-        icon: Wind,
-        title: "Hot Water",
-        desc: "Hot water available",
-        color: "bg-cyan-100",
-        iconColor: "text-cyan-600",
-        colSpan: "col-span-1"
-    },
-];
+const iconMap = {
+    Wifi,
+    Coffee,
+    ShieldCheck,
+    Zap,
+    Sparkles,
+    Wind,
+    Cloud,
+    Rocket,
+    Bird
+};
 
 const Amenities = () => {
+    const [content, setContent] = useState(null);
+
+    useEffect(() => {
+        const fetchContent = async () => {
+            const data = await loadContent("amenities.md");
+            if (data) {
+                setContent(data.attributes);
+            }
+        };
+        fetchContent();
+    }, []);
+
+    if (!content) return null;
+
     return (
         <section id="amenities" className="py-24 bg-white relative overflow-hidden font-sans">
             {/* Cartoon Clouds Background */}
@@ -103,41 +79,50 @@ const Amenities = () => {
                         whileInView={{ scale: 1 }}
                         className="inline-block bg-accent-100 text-accent-600 px-4 py-1.5 rounded-full font-bold text-sm uppercase tracking-wide mb-4"
                     >
-                        Everything You Need
+                        {content.section_title}
                     </motion.div>
                     <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight">
-                        Life Made <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-secondary-500">Super Easy!</span>
+                        {content.main_heading}
                     </h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                    {amenities.map((item, index) => (
-                        <motion.div
-                            key={index}
-                            className={`${item.colSpan} ${item.color} rounded-[2.5rem] p-8 relative overflow-hidden group hover:shadow-xl transition-shadow duration-300 border-4 border-white shadow-sm`}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1, type: "spring", stiffness: 50 }}
-                            whileHover={{ scale: 1.02, rotate: 1 }}
-                        >
-                            <div className="flex flex-col h-full justify-between relative z-10">
-                                <motion.div
-                                    className={`w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-md ${item.iconColor}`}
-                                    whileHover={{ y: -5, rotate: -5 }}
-                                >
-                                    <item.icon size={32} strokeWidth={2.5} />
-                                </motion.div>
+                    {content.amenities_list && content.amenities_list.map((item, index) => {
+                        const IconComponent = iconMap[item.icon] || Wifi; // Fallback to Wifi
+                        const colSpan = item.width === 'full' ? "col-span-1 md:col-span-2" : "col-span-1";
+                        // Map color themes to tailwind classes if needed, or use dynamic template literals if safelisted
+                        // Assuming simple colors for now:
+                        const colorClass = `bg-${item.color_theme}-100`;
+                        const iconColorClass = `text-${item.color_theme}-600`;
 
-                                <div>
-                                    <h3 className={`text-2xl font-bold mb-2 text-slate-800`}>{item.title}</h3>
-                                    <p className="text-slate-600 font-medium">{item.desc}</p>
+                        return (
+                            <motion.div
+                                key={index}
+                                className={`${colSpan} ${colorClass} rounded-[2.5rem] p-8 relative overflow-hidden group hover:shadow-xl transition-shadow duration-300 border-4 border-white shadow-sm`}
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.1, type: "spring", stiffness: 50 }}
+                                whileHover={{ scale: 1.02, rotate: 1 }}
+                            >
+                                <div className="flex flex-col h-full justify-between relative z-10">
+                                    <motion.div
+                                        className={`w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-md ${iconColorClass}`}
+                                        whileHover={{ y: -5, rotate: -5 }}
+                                    >
+                                        <IconComponent size={32} strokeWidth={2.5} />
+                                    </motion.div>
+
+                                    <div>
+                                        <h3 className={`text-2xl font-bold mb-2 text-slate-800`}>{item.title}</h3>
+                                        <p className="text-slate-600 font-medium">{item.desc}</p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            {/* Decorative Circle */}
-                            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500" />
-                        </motion.div>
-                    ))}
+                                {/* Decorative Circle */}
+                                <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500" />
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
         </section>

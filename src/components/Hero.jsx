@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle } from "lucide-react";
+import { loadContent } from "../utils/content";
 
 const Hero = () => {
+  const [content, setContent] = useState(null);
+
+  useEffect(() => {
+    const fetchContent = async () => {
+      const data = await loadContent("home.md");
+      if (data) {
+        setContent(data.attributes);
+      }
+    };
+    fetchContent();
+  }, []);
+
+  if (!content) return null; // Or a loading skeleton
+
   return (
     <section className="relative min-h-screen flex items-center bg-surface-50 overflow-hidden pt-20 pb-10 lg:py-0">
       {/* Background Blobs */}
@@ -38,29 +53,23 @@ const Hero = () => {
           </motion.div>
 
           <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-slate-900 leading-[1.1]">
-            Elevate Your <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 via-secondary-600 to-accent-600">
-              Living Standards
-            </span>
+            {content.headline}
           </h1>
 
           <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-lg leading-relaxed font-medium mx-auto lg:mx-0">
-            Experience the perfect blend of luxury, community, and comfort. Your
-            premium PG in Bangalore awaits.
+            {content.subheadline}
           </p>
 
           <div className="flex flex-wrap gap-4 mb-12 justify-center lg:justify-start">
-            {["Premium Amenities", "0% Brokerage", "Unmatched Vibe"].map(
-              (text, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-2 text-slate-700 font-medium"
-                >
-                  <CheckCircle size={20} className="text-accent-500" />
-                  {text}
-                </div>
-              ),
-            )}
+            {content.values && content.values.map((item, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-2 text-slate-700 font-medium"
+              >
+                <CheckCircle size={20} className="text-accent-500" />
+                {item.text}
+              </div>
+            ))}
           </div>
 
           <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
@@ -96,7 +105,7 @@ const Hero = () => {
         >
           <div className="absolute inset-0 bg-gradient-to-tr from-accent-500/10 to-primary-500/10 rounded-[3rem] transform rotate-3 scale-105" />
           <img
-            src="https://lh3.googleusercontent.com/p/AF1QipNNjbHg8hFuTOXOvU_zOaZATgn8vyUjesL2i-oB=s1360-w1360-h1020-rw"
+            src={content.hero_image}
             alt="Modern PG Room"
             className="relative rounded-[2.5rem] shadow-2xl border-8 border-white object-cover h-[280px] md:h-[500px] w-full z-10"
           />
@@ -115,7 +124,7 @@ const Hero = () => {
                 <p className="text-sm text-slate-500 font-medium">
                   Google Rating
                 </p>
-                <p className="text-xl font-bold text-slate-800">4.9/5.0</p>
+                <p className="text-xl font-bold text-slate-800">{content.google_rating}</p>
               </div>
             </div>
           </motion.div>
