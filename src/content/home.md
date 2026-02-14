@@ -1,5 +1,5 @@
 ---
-headline: Elevate Your Living Standardsss
+headline: Elevate Your Living Standard
 subheadline: Experience the perfect blend of luxury, community, and comfort.
   Your premium PG in Bangalore awaits.
 values:
