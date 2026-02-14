@@ -1,6 +1,7 @@
 ---
-headline: Elevate Your Living Standards
-subheadline: Experience the perfect blend of luxury, community, and comfort. Your premium PG in Bangalore awaits.
+headline: Elevate Your Living Standardsss
+subheadline: Experience the perfect blend of luxury, community, and comfort.
+  Your premium PG in Bangalore awaits.
 values:
   - text: Premium Amenities
   - text: 0% Brokerage
