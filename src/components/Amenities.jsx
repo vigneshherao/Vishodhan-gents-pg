@@ -88,38 +88,60 @@ const Amenities = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                     {content.amenities_list && content.amenities_list.map((item, index) => {
-                        const IconComponent = iconMap[item.icon] || Wifi; // Fallback to Wifi
+                        const IconComponent = iconMap[item.icon] || Wifi;
                         const colSpan = item.width === 'full' ? "col-span-1 md:col-span-2" : "col-span-1";
-                        // Map color themes to tailwind classes if needed, or use dynamic template literals if safelisted
-                        // Assuming simple colors for now:
-                        const colorClass = `bg-${item.color_theme}-100`;
-                        const iconColorClass = `text-${item.color_theme}-600`;
+
+                        // Define vibrant gradient maps based on color theme
+                        const gradients = {
+                            blue: "from-blue-500 to-cyan-400",
+                            orange: "from-orange-500 to-amber-400",
+                            emerald: "from-emerald-500 to-teal-400",
+                            yellow: "from-yellow-400 to-orange-300",
+                            purple: "from-purple-500 to-pink-400",
+                            cyan: "from-cyan-500 to-blue-400",
+                            red: "from-red-500 to-rose-400",
+                            indigo: "from-indigo-500 to-violet-400",
+                            green: "from-green-500 to-emerald-400",
+                            pink: "from-pink-500 to-rose-400",
+                        };
+
+                        const gradientClass = gradients[item.color_theme] || "from-slate-100 to-slate-200";
+                        const shadowColor = `shadow-${item.color_theme}-500/30`;
 
                         return (
                             <motion.div
                                 key={index}
-                                className={`${colSpan} ${colorClass} rounded-[2.5rem] p-8 relative overflow-hidden group hover:shadow-xl transition-shadow duration-300 border-4 border-white shadow-sm`}
+                                className={`${colSpan} bg-gradient-to-br ${gradientClass} rounded-[2.5rem] p-8 relative overflow-hidden group hover:shadow-2xl transition-all duration-300 border border-white/20 ${shadowColor}`}
                                 initial={{ opacity: 0, y: 50 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1, type: "spring", stiffness: 50 }}
-                                whileHover={{ scale: 1.02, rotate: 1 }}
+                                whileHover={{ scale: 1.03, rotate: 1 }}
                             >
                                 <div className="flex flex-col h-full justify-between relative z-10">
                                     <motion.div
-                                        className={`w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-md ${iconColorClass}`}
-                                        whileHover={{ y: -5, rotate: -5 }}
+                                        className={`w-16 h-16 bg-white/90 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
+                                        whileHover={{ y: -5, rotate: -5, scale: 1.1 }}
                                     >
-                                        <IconComponent size={32} strokeWidth={2.5} />
+                                        <IconComponent size={32} strokeWidth={2.5} className={`text-${item.color_theme}-600`} />
                                     </motion.div>
 
                                     <div>
-                                        <h3 className={`text-2xl font-bold mb-2 text-slate-800`}>{item.title}</h3>
-                                        <p className="text-slate-600 font-medium">{item.desc}</p>
+                                        <h3 className={`text-2xl font-bold mb-2 text-white drop-shadow-sm`}>{item.title}</h3>
+                                        <p className="text-white/90 font-medium leading-relaxed">{item.desc}</p>
                                     </div>
                                 </div>
 
-                                {/* Decorative Circle */}
-                                <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500" />
+                                {/* Decorative Elements */}
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none" />
+                                <div className="absolute bottom-0 left-0 w-24 h-24 bg-black/5 rounded-full blur-xl -ml-5 -mb-5 pointer-events-none" />
+
+                                <motion.div
+                                    className="absolute -bottom-4 -right-4 text-white/10 rotate-12 transform scale-150 pointer-events-none"
+                                    whileHover={{ rotate: 0, scale: 1.7 }}
+                                    transition={{ duration: 0.5 }}
+                                >
+                                    <IconComponent size={120} />
+                                </motion.div>
                             </motion.div>
                         );
                     })}

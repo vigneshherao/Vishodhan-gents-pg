@@ -76,10 +76,24 @@ const Contact = () => {
               {[
                 {
                   icon: MapPin,
-                  title: "Our Location",
-                  text: `${content.address_line1}, ${content.address_line2}`,
+                  title: "Our Locations",
+                  text: (
+                    <div className="flex flex-col gap-2">
+                      <span>{content.address_line1}, {content.address_line2}</span>
+                      <span className="opacity-80 text-sm border-t border-white/20 pt-1">{content.secondary_address_line1}, {content.secondary_address_line2}</span>
+                    </div>
+                  ),
                 },
-                { icon: Phone, title: "Call Us", text: content.phone },
+                {
+                  icon: Phone,
+                  title: "Call Us",
+                  text: (
+                    <div className="flex flex-col gap-1">
+                      <span>{content.phone}</span>
+                      <span className="opacity-80 text-lg">{content.phone2}</span>
+                    </div>
+                  )
+                },
                 {
                   icon: Mail,
                   title: "Email Us",

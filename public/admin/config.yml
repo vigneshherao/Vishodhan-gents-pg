@@ -40,9 +40,12 @@ collections:
         name: "contact"
         fields:
           - {label: "Phone Number", name: "phone", widget: "string"}
+          - {label: "Secondary Phone Number", name: "phone2", widget: "string", required: false}
           - {label: "Email Address", name: "email", widget: "string"}
           - {label: "Address Line 1", name: "address_line1", widget: "string"}
           - {label: "Address Line 2", name: "address_line2", widget: "string"}
+          - {label: "Secondary Address Line 1", name: "secondary_address_line1", widget: "string", required: false}
+          - {label: "Secondary Address Line 2", name: "secondary_address_line2", widget: "string", required: false}
           - {label: "Map URL", name: "map_url", widget: "string"}
 
       - file: "src/content/gallery.md"
