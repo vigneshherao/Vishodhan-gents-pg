@@ -1,5 +1,5 @@
 ---
-headline: Feel Right At Home
+headline: Vishodhan Gents PG
 subheadline: Our PG offers safe, comfortable, and well-managed accommodation for
   male students and working professionals. We aim to create a peaceful, homely
   environment where residents can live with ease and feel truly at home.
