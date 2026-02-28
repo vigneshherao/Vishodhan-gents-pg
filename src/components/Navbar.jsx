@@ -34,7 +34,7 @@ const Navbar = () => {
                     animate={{ opacity: 1, x: 0 }}
                     className={`text-2xl font-bold tracking-tight ${scrolled ? 'text-primary-900' : 'text-white'}`}
                 >
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-600">Vishodhan</span> PG
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-600">Vishodhan Gents Pg</span>
                 </motion.div>
 
                 {/* Desktop Menu */}
