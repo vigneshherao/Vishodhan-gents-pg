@@ -8,6 +8,6 @@ values:
   - text: Unmatched Homely Vibes
   - text: Transparent pricing
   - text: 0% Brokerage
-hero_image: https://lh3.googleusercontent.com/p/AF1QipNNjbHg8hFuTOXOvU_zOaZATgn8vyUjesL2i-oB=s1360-w1360-h1020-rw
+hero_image: /images/uploads/whatsapp-image-2026-02-28-at-9.58.40-pm.jpeg
 google_rating: 4.9/5.0
 ---
