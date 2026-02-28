@@ -1,11 +1,8 @@
 ---
 headline: Feel Right At Home
-subheadline: Our PG provides a safe, comfortable, and well-managed accommodation
-  designed especially for male students and working professionals. We focus on
-  providing a peaceful living environment where our residents can feel at home.
-  Our goal is not just to provide accommodation, but to create a comfortable and
-  supportive living space where everyone can stay with peace of mind just like
-  you are at home.
+subheadline: Our PG offers safe, comfortable, and well-managed accommodation for
+  male students and working professionals. We aim to create a peaceful, homely
+  environment where residents can live with ease and feel truly at home.
 values:
   - text: Comforting Amenities
   - text: Unmatched Homely Vibes
