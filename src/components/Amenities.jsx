@@ -69,13 +69,7 @@ const Amenities = () => {
         <Bird size={32} />
       </motion.div>
 
-      <motion.div
-        animate={{ x: [0, -50, 0] }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-40 right-10 text-secondary-100 opacity-50"
-      >
-        <Cloud size={80} fill="currentColor" />
-      </motion.div>
+
 
       {/* Rocket Flying Up */}
       <motion.div
