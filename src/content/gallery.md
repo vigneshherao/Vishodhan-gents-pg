@@ -32,4 +32,8 @@ images:
     image: /images/uploads/4.jpeg
     title: Two sharing
     desc: Spacious Two sharing
+  - size: small
+    image: /images/uploads/10.webp
+    title: Dining Area
+    desc: "Dining space "
 ---
