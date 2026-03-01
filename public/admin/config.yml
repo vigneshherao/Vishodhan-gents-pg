@@ -31,8 +31,8 @@ collections:
             fields:
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Description", name: "desc", widget: "string"}
-              - {label: "Icon Name", name: "icon", widget: "select", options: ["Wifi", "Coffee", "ShieldCheck", "Zap", "Sparkles", "Wind", "Cloud", "Rocket", "Bird"]}
-              - {label: "Color Theme", name: "color_theme", widget: "select", options: ["blue", "orange", "emerald", "yellow", "purple", "cyan"]}
+              - {label: "Icon Name", name: "icon", widget: "select", options: ["Wifi", "Utensils", "ShieldCheck", "Zap", "Sparkles", "Droplet", "Cloud", "Rocket", "UserStar", "MapPin", "Bird"]}
+              - {label: "Color Theme", name: "color_theme", widget: "select", options: ["blue", "orange", "emerald", "yellow", "purple", "cyan", "red", "indigo", "green", "pink"]}
               - {label: "Width", name: "width", widget: "select", options: ["full", "half"], default: "half"}
 
       - file: "src/content/contact.md"

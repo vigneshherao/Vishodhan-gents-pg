@@ -49,7 +49,7 @@ const Hero = () => {
             className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-white border border-primary-100 shadow-sm text-primary-600 text-sm font-semibold tracking-wide"
           >
             <span className="flex h-2 w-2 rounded-full bg-accent-500 animate-pulse"></span>
-            Now Booking for 2026
+            Bookings open for the year 2026
           </motion.div>
 
           <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-slate-900 leading-[1.1]">
@@ -61,15 +61,16 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 mb-12 justify-center lg:justify-start">
-            {content.values && content.values.map((item, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-2 text-slate-700 font-medium"
-              >
-                <CheckCircle size={20} className="text-accent-500" />
-                {item.text}
-              </div>
-            ))}
+            {content.values &&
+              content.values.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-2 text-slate-700 font-medium"
+                >
+                  <CheckCircle size={20} className="text-accent-500" />
+                  {item.text}
+                </div>
+              ))}
           </div>
 
           <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
@@ -124,7 +125,9 @@ const Hero = () => {
                 <p className="text-sm text-slate-500 font-medium">
                   Google Rating
                 </p>
-                <p className="text-xl font-bold text-slate-800">{content.google_rating}</p>
+                <p className="text-xl font-bold text-slate-800">
+                  {content.google_rating}
+                </p>
               </div>
             </div>
           </motion.div>

@@ -14,7 +14,7 @@ amenities_list:
     desc: Freshly prepared, tasty, and hygienic meals every day, keeping both health
       and taste in mind. Quality ingredients are used, and food is cooked in a
       clean, well-maintained kitchen following proper hygiene standards.
-    icon: Coffee
+    icon: Utensils
     color_theme: orange
     width: half
   - title: Safety and Security
@@ -44,7 +44,7 @@ amenities_list:
     desc: 24/7 availability of hot and cold water to ensure maximum comfort in all
       seasons. Whether it is early mornings or late nights, uninterrupted water
       supply allows residents to manage their daily routines with ease.
-    icon: Wind
+    icon: Droplet
     color_theme: cyan
     width: half
   - title: Living Spaces
@@ -54,12 +54,12 @@ amenities_list:
     width: half
   - title: Managing Team
     desc: Responsible and attentive owners who are actively involved in the day-to-day operations ensuring transparent communication, and timely support for residents’ needs. With a genuine focus on comfort, discipline, and well-being, the management strive to maintain a peaceful and well-organized living environment. Their hands-on approach helps residents feel secure, supported, and truly at home.
-    icon: Bird
+    icon: UserStar
     color_theme: blue
     width: half
   - title: Location
     desc: Strategically located in a convenient and well-connected area, making daily travel easy and time-saving. It is close to a major bus stop, workplaces, educational institutions, public transport, and essential facilities such as supermarkets, hospitals, and eateries. The location offers peaceful surroundings while still providing quick access to the city’s key areas, ensuring both comfort and convenience for residents.
-    icon: Rocket
+    icon: MapPin
     color_theme: orange
     width: full
 ---
