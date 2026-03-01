@@ -12,7 +12,7 @@ images:
     title: Modern Interiors
     desc: Stylish & Clean
     size: medium
-  - image: /images/uploads/4.jpeg
+  - image: /images/uploads/9.webp
     title: Study Area
     desc: Focus & Grow
     size: small
@@ -28,4 +28,8 @@ images:
     title: Common Area
     desc: Community vibes
     size: medium
+  - size: small
+    image: /images/uploads/4.jpeg
+    title: Two sharing
+    desc: Spacious Two sharing
 ---
