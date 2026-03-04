@@ -78,9 +78,16 @@ const Contact = () => {
                   icon: MapPin,
                   title: "Our Locations",
                   text: (
-                    <div className="flex flex-col gap-2">
-                      <span>{content.address_line1}, {content.address_line2}</span>
-                      <span className="opacity-80 text-sm border-t border-white/20 pt-1">{content.secondary_address_line1}, {content.secondary_address_line2}</span>
+                    <div className="flex flex-col gap-6">
+                      <div>
+                        <span className="text-white/60 text-xs font-bold uppercase block mb-1">Address 1</span>
+                        <span>{content.address_line1}</span>
+                      </div>
+                      <div>
+                        <span className="text-white/60 text-xs font-bold uppercase block mb-1">Address 2</span>
+                        <span className="text-sm">{content.address_line2}</span>
+                        <span className="opacity-80 text-sm block mt-1">{content.secondary_address_line1}, {content.secondary_address_line2}</span>
+                      </div>
                     </div>
                   ),
                 },
@@ -90,7 +97,6 @@ const Contact = () => {
                   text: (
                     <div className="flex flex-col gap-1">
                       <span>{content.phone}</span>
-                      <span className="opacity-80 text-lg">{content.phone2}</span>
                     </div>
                   )
                 },

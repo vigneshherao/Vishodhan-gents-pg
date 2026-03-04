@@ -19,7 +19,7 @@ const Hero = () => {
   if (!content) return null; // Or a loading skeleton
 
   return (
-    <section className="relative min-h-screen flex items-center bg-surface-50 overflow-hidden pt-20 pb-10 lg:py-0">
+    <section className="relative min-h-screen flex items-center bg-surface-50 overflow-hidden pt-32 pb-10 lg:pt-40 lg:pb-20">
       {/* Background Blobs */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -34,7 +34,7 @@ const Hero = () => {
         />
       </div>
 
-      <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div className="container mx-auto px-6 md:px-12 lg:px-24 max-w-7xl relative z-10 grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
         {/* Left Content */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -46,7 +46,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-white border border-primary-100 shadow-sm text-primary-600 text-sm font-semibold tracking-wide"
+            className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-white border border-primary-100 shadow-sm text-primary-600 text-sm font-semibold tracking-wide whitespace-nowrap"
           >
             <span className="flex h-2 w-2 rounded-full bg-accent-500 animate-pulse"></span>
             Bookings open for the year 2026
@@ -75,7 +75,7 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
             <motion.a
-              href="tel:07259008155"
+              href="tel:7259008155"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary-600/20"
