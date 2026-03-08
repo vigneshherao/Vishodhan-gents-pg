@@ -92,13 +92,20 @@ const Contact = () => {
                   text: (
                     <div className="flex flex-col gap-6">
                       <div>
-                        <span className="text-white/60 text-xs font-bold uppercase block mb-1">Address 1</span>
+                        <span className="text-white/60 text-xs font-bold uppercase block mb-1">
+                          Address 1
+                        </span>
                         <span>{content.address_line1}</span>
                       </div>
                       <div>
-                        <span className="text-white/60 text-xs font-bold uppercase block mb-1">Address 2</span>
+                        <span className="text-white/60 text-xs font-bold uppercase block mb-1">
+                          Address 2
+                        </span>
                         <span className="text-sm">{content.address_line2}</span>
-                        <span className="opacity-80 text-sm block mt-1">{content.secondary_address_line1}, {content.secondary_address_line2}</span>
+                        <span className="opacity-80 text-sm block mt-1">
+                          {content.secondary_address_line1},{" "}
+                          {content.secondary_address_line2}
+                        </span>
                       </div>
                     </div>
                   ),
@@ -108,11 +115,14 @@ const Contact = () => {
                   title: "Call Us",
                   text: (
                     <div className="flex flex-col gap-1">
-                      <a href={`tel:${content.phone}`} className="hover:text-accent-300 transition-colors">
+                      <a
+                        href={`tel:${content.phone}`}
+                        className="hover:text-accent-300 transition-colors"
+                      >
                         {content.phone}
                       </a>
                       <a
-                        href={`https://wa.me/91${content.phone.replace(/\D/g, '')}`}
+                        href={`https://wa.me/91${content.phone.replace(/\D/g, "")}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-sm text-green-400 font-bold flex items-center gap-2 hover:text-green-300 transition-colors mt-1"
@@ -120,7 +130,7 @@ const Contact = () => {
                         <WhatsAppIcon size={18} /> Chat on WhatsApp
                       </a>
                     </div>
-                  )
+                  ),
                 },
                 {
                   icon: Mail,
@@ -158,10 +168,13 @@ const Contact = () => {
                   Icon: Instagram,
                   href: "https://www.instagram.com/vishodhangentspg2025?igsh=MXB2anA5dnN3ODRydg%3D%3D",
                 },
-                { Icon: Facebook, href: "#" },
+                {
+                  Icon: Facebook,
+                  href: "https://www.facebook.com/share/178Z4WG9GV/",
+                },
                 {
                   Icon: WhatsAppIcon,
-                  href: `https://wa.me/91${content.phone.replace(/\D/g, '')}`,
+                  href: `https://wa.me/91${content.phone.replace(/\D/g, "")}`,
                 },
               ].map(({ Icon, href }, idx) => (
                 <motion.a
