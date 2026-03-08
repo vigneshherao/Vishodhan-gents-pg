@@ -152,7 +152,7 @@ const Navbar = () => {
                             <div className="mt-auto">
                                 <a href="tel:7259008155" className="w-full flex items-center justify-center gap-3 bg-primary-600 text-white p-4 rounded-2xl font-bold shadow-xl shadow-primary-600/20 transition-all active:scale-95">
                                     <Phone size={20} />
-                                    Contact Host
+                                    Get Help
                                 </a>
                             </div>
                         </motion.div>
