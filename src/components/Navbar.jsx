@@ -51,10 +51,10 @@ const Navbar = () => {
                     animate={{ opacity: 1, x: 0 }}
                     className="flex items-center gap-2 group relative"
                 >
-                    <div className="w-12 h-12 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform overflow-hidden rounded-xl shadow-lg">
+                    <div className="w-10 h-10 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform overflow-hidden rounded-xl shadow-lg">
                         <img src="./images/uploads/vishodhan.jpeg" alt="Vishodhan PG Logo" className="w-full h-full object-cover" />
                     </div>
-                    <span className={`text-lg sm:text-xl font-bold tracking-tight text-slate-900`}>
+                    <span className={`text-base sm:text-lg font-bold tracking-tight text-slate-900`}>
                         Vishodhan <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-600">PG</span>
                     </span>
                 </motion.a>

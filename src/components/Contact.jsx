@@ -144,16 +144,16 @@ const Contact = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.1 }}
                   whileHover={{ x: 10 }}
-                  className="flex items-center space-x-5 group cursor-pointer"
+                  className="flex items-center space-x-3 md:space-x-5 group cursor-pointer w-full"
                 >
-                  <div className="p-3.5 bg-white rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <item.icon size={24} className="text-primary-600" />
+                  <div className="p-2.5 md:p-3 bg-white rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300 shrink-0">
+                    <item.icon size={20} className="text-primary-600" />
                   </div>
-                  <div>
-                    <p className="text-white/60 text-sm font-semibold mb-0.5">
+                  <div className="min-w-0 flex-1">
+                    <p className="text-white/60 text-xs md:text-sm font-semibold mb-0.5">
                       {item.title}
                     </p>
-                    <h4 className="font-bold text-xl text-white tracking-wide">
+                    <h4 className="font-bold text-[13px] min-[360px]:text-sm sm:text-base md:text-lg text-white tracking-tight md:tracking-wide">
                       {item.text}
                     </h4>
                   </div>
