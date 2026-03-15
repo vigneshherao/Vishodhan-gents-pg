@@ -51,8 +51,8 @@ const Navbar = () => {
                     animate={{ opacity: 1, x: 0 }}
                     className="flex items-center gap-2 group relative"
                 >
-                    <div className="w-10 h-10 bg-gradient-to-br from-primary-600 to-accent-600 rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform flex-shrink-0">
-                        <span className="text-white font-black text-xl">V</span>
+                    <div className="w-12 h-12 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform overflow-hidden rounded-xl shadow-lg">
+                        <img src="./images/uploads/vishodhan.jpeg" alt="Vishodhan PG Logo" className="w-full h-full object-cover" />
                     </div>
                     <span className={`text-lg sm:text-xl font-bold tracking-tight text-slate-900`}>
                         Vishodhan <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-600">PG</span>
@@ -124,9 +124,14 @@ const Navbar = () => {
                             className="fixed top-0 right-0 h-full w-[80%] max-w-[300px] bg-white shadow-2xl z-[110] flex flex-col p-8 pointer-events-auto"
                         >
                             <div className="flex justify-between items-center mb-12">
-                                <span className="text-2xl font-bold tracking-tight text-slate-900">
-                                    Vishodhan <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-600">PG</span>
-                                </span>
+                                <div className="flex items-center gap-3">
+                                    <div className="w-10 h-10 flex items-center justify-center flex-shrink-0 overflow-hidden rounded-xl shadow-md">
+                                        <img src="/logo.png" alt="Vishodhan PG Logo" className="w-full h-full object-cover" />
+                                    </div>
+                                    <span className="text-2xl font-bold tracking-tight text-slate-900">
+                                        Vishodhan <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-600">PG</span>
+                                    </span>
+                                </div>
                                 <button onClick={() => setIsOpen(false)} className="p-2 bg-slate-100 rounded-full text-slate-600">
                                     <X size={20} />
                                 </button>
